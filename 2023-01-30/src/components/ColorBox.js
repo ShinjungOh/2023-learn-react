@@ -1,22 +1,29 @@
-import ColorContext from "../contexts/color";
+import {ColorConsumer} from "../contexts/color";
 import RenderPropsSample from "./RenderProps";
 
 const ColorBox = () => {
     return (
         <>
-            <ColorContext.Consumer>
-                { // 함수를 전달, function as a child 또는 render props 라고 함
-                    value => (
+            <ColorConsumer>
+                {({state}) => (
+                    <>
                         <div
                             style={{
                                 width: '64px',
                                 height: '64px',
-                                background: value.color
+                                background: state.color
                             }}
                         />
-                    )
-                }
-            </ColorContext.Consumer>
+                        <div
+                            style={{
+                                width: '32px',
+                                height: '32px',
+                                background: state.subColor
+                            }}
+                        />
+                    </>
+                )}
+            </ColorConsumer>
             <RenderPropsSample>
                 {
                     value => value * 2
