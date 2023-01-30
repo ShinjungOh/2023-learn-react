@@ -1,6 +1,10 @@
+import ColorBox from "./components/ColorBox";
+
 const App = () => {
     return (
-        <>app</>
+        <>
+            <ColorBox/>
+        </>
     );
 }
 
