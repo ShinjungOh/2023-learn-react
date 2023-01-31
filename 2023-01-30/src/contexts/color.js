@@ -16,7 +16,7 @@ const ColorProvider = ({children}) => {
 
     const value = { // state와 action 객체를 분리해주면 다른 컴포넌트에서 Context 값을 사용할 때 편리
         state: {color, subColor},
-        action: {setColor, setSubColor}
+        actions: {setColor, setSubColor}
     }
 
     return (

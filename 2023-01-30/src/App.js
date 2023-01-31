@@ -1,5 +1,6 @@
 import ColorBox from "./components/ColorBox";
 import {ColorProvider} from "./contexts/color";
+import SelectColors from "./components/SelectColors";
 
 const App = () => {
     return (
@@ -7,6 +8,7 @@ const App = () => {
         /* createContext 함수에서 파라미터로 넣은 기본값은 Provider를 사용하지 않았을 때만 사용됨 */
         <ColorProvider>
             <>
+                <SelectColors/>
                 <ColorBox/>
             </>
         </ColorProvider>

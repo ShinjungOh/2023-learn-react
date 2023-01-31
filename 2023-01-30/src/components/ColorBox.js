@@ -1,5 +1,4 @@
 import {ColorConsumer} from "../contexts/color";
-import RenderPropsSample from "./RenderProps";
 
 const ColorBox = () => {
     return (
@@ -24,11 +23,6 @@ const ColorBox = () => {
                     </>
                 )}
             </ColorConsumer>
-            <RenderPropsSample>
-                {
-                    value => value * 2
-                }
-            </RenderPropsSample>
         </>
     )
 }
