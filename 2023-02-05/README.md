@@ -24,7 +24,7 @@ yarn add redux react-redux
   * 리덕스로부터 상태를 받아 오거나, 리덕스 스토어에 액션을 디스패치
 
 
-![](components pattern.png)  
+![](components_pattern.png)  
 
 
 ### 장점 
