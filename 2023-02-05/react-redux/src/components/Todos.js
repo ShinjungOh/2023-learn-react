@@ -1,4 +1,4 @@
-const TodoItem = () => {
+const TodoItem = ({ todo, onToggle, onRemove }) => {
   return (
     <div>
       <input type='checkbox' />
