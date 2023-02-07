@@ -67,3 +67,15 @@ Ducks 패턴
 
 `createStore` 함수를 사용해 스토어를 만들 때는 리듀서를 하나만 사용해야 한다.  
 이를 위해 기존의 리듀서들을 하나로 합치는 작업을 할 때, 리덕스의 `combineReducers` 함수를 사용하면 된다.    
+
+<br>
+
+## redux-actions
+
+```
+yarn add redux-actions
+```
+
+`createAction` 액션 생성 함수를 간단하게 선언할 수 있다.  
+리듀서를 작성할 때 switch/case 문이 아닌 `handleActions` 함수를 사용해, 각 액션마다 업데이트 함수를 설정하는 형식으로 작성할 수 있다.    
+`handleActions(각 액션에 대한 업데이트 함수, 초기 상태)`
