@@ -53,7 +53,7 @@ export default connect(
   //   ),
 
   // 3️⃣ bindActionCreators 사용하지 않을 때
-  //   ({
+  // dispatch => ({
   //   increase: () => dispatch(increase()),
   //   decrease: () => dispatch(decrease()),
   // }),
