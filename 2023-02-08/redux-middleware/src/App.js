@@ -1,7 +1,11 @@
+import CounterContainer from './containers/CounterContainer';
+
 const App = () => {
   return (
-   <>app</>
+    <div>
+      <CounterContainer />
+    </div>
   );
-}
+};
 
 export default App;
