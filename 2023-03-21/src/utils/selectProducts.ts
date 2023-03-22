@@ -1,8 +1,8 @@
 import Product from '../types/Product';
 
 export default function selectProducts(
-  items: Product[],
+  products: Product[],
   category: string,
 ): Product[] {
-  return items.filter((item) => item.category === category);
+  return products.filter((product) => product.category === category);
 }
