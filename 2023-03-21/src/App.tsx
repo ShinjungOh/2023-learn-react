@@ -1,9 +1,5 @@
-interface Product {
-  category: string;
-  price: string;
-  stocked: boolean;
-  name: string;
-}
+import Product from './types/Product';
+import ProductsInCategory from './components/ProductsInCategory';
 
 const products: Product[] = [
   { category: 'Fruits', price: '$1', stocked: true, name: 'Apple' },
@@ -40,28 +36,15 @@ export default function App() {
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th colSpan={2}>
-            {categories[0]}
-          </th>
-        </tr>
-        {products.filter((product) => product.category === categories[0]).map((product) => (
-          <tr key={product.name}>
-            <td>{product.name}</td>
-            <td>{product.price}</td>
-          </tr>
-        ))}
-        <tr>
-          <th colSpan={2}>
-            {categories[1]}
-          </th>
-        </tr>
-        {products.filter((product) => product.category === categories[1]).map((product) => (
-          <tr key={product.name}>
-            <td>{product.name}</td>
-            <td>{product.price}</td>
-          </tr>
-        ))}
+        {
+          categories.map((category) => (
+              <ProductsInCategory
+                key={category}
+                category={category}
+                products={products}
+              />
+            ))
+        }
         </tbody>
       </table>
     </div>
