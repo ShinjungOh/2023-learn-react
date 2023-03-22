@@ -1,4 +1,5 @@
 import Product from '../types/Product';
+import ProductRow from './ProductRow';
 
 type ProductsInCategoryProps = {
   category: string;
@@ -16,10 +17,7 @@ export default function ProductsInCategory({ category, products }: ProductsInCat
         </th>
       </tr>
       {productsInCategory.map((product) => (
-        <tr key={product.name}>
-          <td>{product.name}</td>
-          <td>{product.price}</td>
-        </tr>
+        <ProductRow key={product.name} product={product} />
       ))}
     </>
   );
