@@ -1,5 +1,5 @@
 import Product from './types/Product';
-import ProductsInCategory from './components/ProductsInCategory';
+import ProductTable from './components/ProductTable';
 
 const products: Product[] = [
   { category: 'Fruits', price: '$1', stocked: true, name: 'Apple' },
@@ -11,10 +11,6 @@ const products: Product[] = [
 ];
 
 export default function App() {
-  const categories = products.reduce((acc: string[], product: Product) => (
-    acc.includes(product.category) ? acc : [...acc, product.category]
-  ), []);
-
   return (
     <div className='filterable-product-table'>
       <div className='search-bar'>
@@ -28,25 +24,7 @@ export default function App() {
           </label>
         </div>
       </div>
-      <table className='products-table'>
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        {
-          categories.map((category) => (
-              <ProductsInCategory
-                key={category}
-                category={category}
-                products={products}
-              />
-            ))
-        }
-        </tbody>
-      </table>
+      <ProductTable products={products} />
     </div>
   );
 }
