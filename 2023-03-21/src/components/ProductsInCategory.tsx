@@ -1,6 +1,7 @@
 import Product from '../types/Product';
 import ProductRow from './ProductRow';
 import ProductCategoryRow from './ProductCategoryRow';
+import selectProducts from '../utils/selectProducts';
 
 type ProductsInCategoryProps = {
   category: string;
@@ -8,7 +9,7 @@ type ProductsInCategoryProps = {
 }
 
 export default function ProductsInCategory({ category, products }: ProductsInCategoryProps) {
-  const productsInCategory = products.filter((product) => product.category === category);
+  const productsInCategory = selectProducts(products, category);
 
   return (
     <>

@@ -1,7 +1,11 @@
 import Product from '../types/Product';
 import ProductsInCategory from './ProductsInCategory';
 
-export default function ProductTable({ products }: { products: Product[] }) {
+type ProductTableProps = {
+  product: Product[];
+}
+
+export default function ProductTable({ products }: ProductTableProps) {
   const categories = products.reduce((acc: string[], product: Product) => (
     acc.includes(product.category) ? acc : [...acc, product.category]
   ), []);
