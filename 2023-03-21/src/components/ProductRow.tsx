@@ -7,7 +7,15 @@ type ProductRowProps = {
 export default function ProductRow({ product }: ProductRowProps) {
   return (
     <tr>
-      <td>{product.name}</td>
+      <td>
+        <span
+          style={{
+            color: product.stocked ? '#000' : '#F00',
+          }}
+        >
+          {product.name}
+        </span>
+      </td>
       <td>{product.price}</td>
     </tr>
   );
