@@ -10,14 +10,19 @@ type FilterableProductTableProps = {
 
 export default function FilterableProductTable({ products }: FilterableProductTableProps) {
   const [filterText, setFilterText] = useState<string>('');
+  const [inStockOnly, setInStockOnly] = useState<boolean>(false);
 
-  const filteredProducts = filterProducts(products, filterText);
+  const filteredProducts = filterProducts(products, {
+    filterText, inStockOnly,
+  });
 
   return (
     <div>
       <SearchBar
         filterText={filterText}
         setFilterText={setFilterText}
+        inStockOnly={inStockOnly}
+        setInStockOnly={setInStockOnly}
       />
       <ProductTable products={filteredProducts} />
     </div>

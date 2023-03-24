@@ -1,13 +1,13 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 type CheckBoxFieldProps = {
   label: string;
+  inStockOnly: boolean;
+  setInStockOnly: (value: boolean) => void;
 }
 
-export default function CheckBoxField({ label }: CheckBoxFieldProps) {
+export default function CheckBoxField({ label, inStockOnly, setInStockOnly }: CheckBoxFieldProps) {
   const id = useRef(`checkbox-${label}`.replace(/ /g, '-').toLowerCase());
-
-  const [inStockOnly, setInStockOnly] = useState<boolean>(false);
 
   const handleChange = () => {
     setInStockOnly(!inStockOnly);
