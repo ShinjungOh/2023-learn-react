@@ -1,12 +1,12 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 type TextFieldProps = {
   placeholder: string;
+  filterText: string;
+  setFilterText: (value: string) => void;
 }
 
-export default function TextField({ placeholder }: TextFieldProps) {
-  const [filterText, setFilterText] = useState<string>('');
-
+export default function TextField({ placeholder, filterText, setFilterText }: TextFieldProps) {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setFilterText(value);
