@@ -1,3 +1,4 @@
+import TimerControl from './TimerControl';
 import SearchBar from './SearchBar';
 import ProductTable from './ProductTable';
 import Product from '../types/Product';
@@ -18,6 +19,8 @@ export default function FilterableProductTable({ products }: FilterableProductTa
 
   return (
     <div>
+      <TimerControl/>
+      <hr/>
       <SearchBar
         filterText={filterText}
         setFilterText={setFilterText}
