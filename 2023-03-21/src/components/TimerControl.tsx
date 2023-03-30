@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Timer() {
   useEffect(() => {
@@ -9,7 +9,6 @@ function Timer() {
     }, 100);
 
     return () => {
-      // console.log('End of effect');
       clearInterval(id);
       document.title = savedTitle;
     };
@@ -19,23 +18,15 @@ function Timer() {
 }
 
 export default function TimerControl() {
-  const counter = useRef(1);
-
   const [playing, setPlaying] = useState(false);
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
-    counter.current += 1;
-    // setPlaying(!playing);
+    setPlaying(!playing);
   };
-
-  useEffect(() => {
-    console.log('effect');
-  }, []);
 
   return (
     <div>
-      <p>{counter.current}</p>
       {
         playing ? (
           <Timer />
