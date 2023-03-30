@@ -6,7 +6,6 @@ export default function App() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    console.log('!')
     const fetchProducts = async () => {
       const url = 'http://localhost:3000/products';
       const response = await fetch(url);

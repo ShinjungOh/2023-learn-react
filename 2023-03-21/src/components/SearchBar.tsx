@@ -16,6 +16,11 @@ export default function SearchBar({ filterText, setFilterText, inStockOnly, setI
         filterText={filterText}
         setFilterText={setFilterText}
       />
+      <TextField
+        placeholder='Search...'
+        filterText={filterText}
+        setFilterText={setFilterText}
+      />
       <CheckBoxField
         label='Only show products in stock'
         inStockOnly={inStockOnly}
