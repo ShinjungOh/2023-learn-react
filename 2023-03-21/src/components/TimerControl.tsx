@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useBoolean, useCounter } from 'usehooks-ts';
 
 function Timer() {
   useEffect(() => {
@@ -18,12 +19,12 @@ function Timer() {
 }
 
 export default function TimerControl() {
-  const [playing, setPlaying] = useState(false);
-  const [count, setCount] = useState(0);
+  const { value: playing, toggle: togglePlaying } = useBoolean();
+  const { count, increment } = useCounter(0);
 
-  const handleClick = () => {
-    setPlaying(!playing);
-  };
+  // const handleClick = () => {
+  //   togglePlaying();
+  // };
 
   return (
     <div>
@@ -34,9 +35,9 @@ export default function TimerControl() {
           <p>stop</p>
         )
       }
-      <button type='button' onClick={handleClick}>Toggle</button>
+      <button type='button' onClick={togglePlaying}>Toggle</button>
       <p>{count}</p>
-      <button type='button' onClick={() => setCount(count + 1)}>Increase</button>
+      <button type='button' onClick={increment}>Increase</button>
     </div>
   );
 }
