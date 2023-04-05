@@ -24,6 +24,10 @@ describe('add', () => {
 
 	context('with only one arguments', () => {
 		it('returns the same numbers', () => {
+			// When
+			const result = add(2);
+
+			// Then
 			expect(add(2)).toBe(2);
 		});
 	});
