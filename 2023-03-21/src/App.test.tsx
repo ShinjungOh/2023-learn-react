@@ -1,16 +1,10 @@
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import App from './App';
-import fixtures from '../fixtures';
-import useFetchProducts from './hooks/useFetchProducts';
 
-jest.mock('./hooks/useFetchProducts');
-
-// Jest.mock('./hooks/useFetchProducts', () => () => fixtures.products);
-
-test('App', () => {
+test('App', async () => {
 	render(<App />);
 
-	screen.getByText('Apple');
-
-	expect(useFetchProducts).toBeCalled();
+	await waitFor(() => {
+		screen.getByText('Apple');
+	});
 });
