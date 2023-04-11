@@ -2,7 +2,7 @@
   "name": "2023-04-12",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "index.html",
   "scripts": {
     "start": "parcel --port 8080",
     "build": "parcel build",
@@ -33,6 +33,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "parcel": "^2.8.3",
     "parcel-reporter-static-files-copy": "^1.5.0",
+    "process": "^0.11.10",
     "typescript": "^5.0.4"
   },
   "dependencies": {
