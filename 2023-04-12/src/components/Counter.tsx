@@ -1,26 +1,15 @@
-import useForceUpdate from '../hooks/useForceUpdate';
-import {container} from 'tsyringe';
-import Store from '../stores/Store';
+import useCounterStore from '../hooks/useCounterStore';
 
 export default function Counter() {
-	const store = container.resolve(Store);
-
-	const forceUpdate = useForceUpdate();
-
-	const handleClick = () => {
-		store.count += 1;
-		forceUpdate();
-	};
+	const store = useCounterStore();
 
 	return (
 		<div>
-			<p>{store.count}</p>
-			<button
-				type='button'
-				onClick={handleClick}
-			>
-        Increase
-			</button>
+			<p>
+				Count:
+				{' '}
+				{store.count}
+			</p>
 		</div>
 	);
 }
