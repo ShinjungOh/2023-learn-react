@@ -7,9 +7,10 @@ import BaseStore, {type Action} from './BaseStore';
 
 const initialState = {
 	count: 0,
+	name: '',
 };
 
-type State = typeof initialState;
+export type State = typeof initialState;
 
 function reducer(state: State, action: Action) {
 	switch (action.type) {

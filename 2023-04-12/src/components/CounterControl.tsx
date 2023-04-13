@@ -1,15 +1,20 @@
-import useStore from '../hooks/useStore';
-import {increase, decrease} from '../stores/Store';
 import useDispatch from '../hooks/useDispatch';
+import useSelector from '../hooks/useSelector';
+import {increase, decrease} from '../stores/Store';
 
 export default function CounterControl() {
 	const dispatch = useDispatch();
 
-	const {state} = useStore();
+	const count = useSelector(state => state.count);
+	// Const name = useSelector(state => state.name);
+	// Const countAndeName = useSelector(state => ({
+	// 	count: state.count,
+	// 	name: state.name,
+	// }));
 
 	return (
 		<div>
-			<p>{state.count}</p>
+			<p>{count}</p>
 			<button
 				type='button'
 				onClick={() => {
