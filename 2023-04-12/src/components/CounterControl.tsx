@@ -1,28 +1,28 @@
-import useCounterStore from '../hooks/useCounterStore';
+import useStore from '../hooks/useStore';
+import {increase, decrease} from '../stores/Store';
+import useDispatch from '../hooks/useDispatch';
 
 export default function CounterControl() {
-	const store = useCounterStore();
+	const dispatch = useDispatch();
 
-	const handleClickIncrease = () => {
-		store.increase();
-	};
-
-	const handleClickDecrease = () => {
-		store.decrease();
-	};
+	const {state} = useStore();
 
 	return (
 		<div>
-			<p>{store.count}</p>
+			<p>{state.count}</p>
 			<button
 				type='button'
-				onClick={handleClickIncrease}
+				onClick={() => {
+					dispatch(increase());
+				}}
 			>
         Increase
 			</button>
 			<button
 				type='button'
-				onClick={handleClickDecrease}
+				onClick={() => {
+					dispatch(decrease());
+				}}
 			>
         Decrease
 			</button>
