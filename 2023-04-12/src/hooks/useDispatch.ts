@@ -1,10 +1,11 @@
-import useStore from './useStore';
+import {container} from 'tsyringe';
 import {type Action} from '../stores/BaseStore';
+import Store from '../stores/Store';
 
-export default function useDispatch() {
-	const store = useStore();
+export default function useDispatch<Payload>() {
+	const store = container.resolve(Store);
 
-	return (action: Action) => {
-		store.dispatch(action);
+	return (action: Action<Payload>) => {
+		store.dispatch<Payload>(action);
 	};
 }

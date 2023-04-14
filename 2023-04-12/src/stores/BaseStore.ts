@@ -1,24 +1,36 @@
-export type Action = {
+export type Action<Payload> = {
 	type: string;
+	payload?: Payload;
 };
 
-type Reducer<State> = (state: State, action: Action) => State;
+type Reducer<State, Payload> = (state: State, action: Action<Payload>) => State;
+
+type Reducers<State> = Record<string, Reducer<State, any>>;
 
 type Listener = () => void;
 
 export default class BaseStore<State> {
 	state: State;
 
-	reducer: Reducer<State>;
+	reducer: Reducer<State, any>;
 
 	listeners = new Set<Listener>();
 
-	constructor(initialState: State, reducer: Reducer<State>) {
+	constructor(initialState: State, reducers: Reducers<State>) {
 		this.state = initialState;
-		this.reducer = reducer;
+
+		this.reducer = (state: State, action: Action<any>) => {
+			const reducer = Reflect.get(reducers, action.type);
+
+			if (!reducer) {
+				return state;
+			}
+
+			return reducer(state, action);
+		};
 	}
 
-	dispatch(action: Action) {
+	dispatch(action: Action<any>) {
 		this.state = this.reducer(this.state, action);
 		this.publish();
 	}

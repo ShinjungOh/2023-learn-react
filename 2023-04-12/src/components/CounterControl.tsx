@@ -6,11 +6,6 @@ export default function CounterControl() {
 	const dispatch = useDispatch();
 
 	const count = useSelector(state => state.count);
-	// Const name = useSelector(state => state.name);
-	// Const countAndeName = useSelector(state => ({
-	// 	count: state.count,
-	// 	name: state.name,
-	// }));
 
 	return (
 		<div>
@@ -26,10 +21,26 @@ export default function CounterControl() {
 			<button
 				type='button'
 				onClick={() => {
+					dispatch(increase(10));
+				}}
+			>
+        Increase 10
+			</button>
+			<button
+				type='button'
+				onClick={() => {
 					dispatch(decrease());
 				}}
 			>
         Decrease
+			</button>
+			<button
+				type='button'
+				onClick={() => {
+					dispatch(decrease(10));
+				}}
+			>
+        Decrease 10
 			</button>
 		</div>
 	);
