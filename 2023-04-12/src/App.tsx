@@ -1,6 +1,5 @@
 import Counter from './components/Counter';
 import CounterControl from './components/CounterControl';
-import NameCard from './components/NameCard';
 
 export default function App() {
 	return (
@@ -9,7 +8,6 @@ export default function App() {
 			<Counter/>
 			<Counter/>
 			<CounterControl/>
-			<NameCard/>
 		</div>
 	);
 }
