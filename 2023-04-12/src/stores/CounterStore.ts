@@ -1,24 +1,18 @@
 import {singleton} from 'tsyringe';
-import ObjectStore from './ObjectStore';
+import {Action, Store} from 'usestore-ts';
 
 @singleton()
-export default class CounterStore extends ObjectStore {
+@Store()
+export default class CounterStore {
 	count = 0;
 
-	/**
-	 * 카운트를 증가시킨다.
-	 */
+	@Action()
 	increase(step = 1) {
 		this.count += step;
-		this.publish();
 	}
 
-	/**
-	 * 카운트를 감소시킨다.
-	 */
+	@Action()
 	decrease(step = 1) {
 		this.count -= step;
-		this.publish();
 	}
 }
-

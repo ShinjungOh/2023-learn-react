@@ -1,13 +1,11 @@
 import useCounterStore from '../hooks/useCounterStore';
 
 export default function CounterControl() {
-	const store = useCounterStore();
-
-	const {count} = store;
+	const [, store] = useCounterStore();
 
 	return (
 		<div>
-			<p>{count}</p>
+			{/* <p>{count}</p> */}
 			<button
 				type='button'
 				onClick={() => {
