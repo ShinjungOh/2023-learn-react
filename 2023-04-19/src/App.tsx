@@ -3,23 +3,17 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 
-const pages = {
-	'/': HomePage,
-	'/about': AboutPage,
-};
+import {Routes, Route} from 'react-router-dom';
 
 export default function App() {
-	const path = window.location.pathname;
-
-	const Page = Reflect.get(pages, path) || HomePage;
-
 	return (
 		<div>
 			<Header />
 			<main>
-				<Page/>
-				{/* {path === '/' && (<HomePage />)} */}
-				{/* {path === '/about' && (<AboutPage />)} */}
+				<Routes>
+					<Route path='/' element={<HomePage/>}/>
+					<Route path='/about' element={<AboutPage/>}/>
+				</Routes>
 			</main>
 			<Footer />
 		</div>
