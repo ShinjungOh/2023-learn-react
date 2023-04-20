@@ -1,6 +1,12 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 export default function Header() {
+	const navigate = useNavigate();
+
+	const handleClickLogout = () => {
+		navigate('/');
+	};
+
 	return (
 		<header>
 			<nav>
@@ -12,7 +18,9 @@ export default function Header() {
 						<Link to='/about'>About</Link>
 					</li>
 					<li>
-						<Link to='/logout'>Log out</Link>
+						<button type='button' onClick={handleClickLogout}>
+							Log out
+						</button>
 					</li>
 				</ul>
 			</nav>
