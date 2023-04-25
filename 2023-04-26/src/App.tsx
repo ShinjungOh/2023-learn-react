@@ -1,7 +1,10 @@
+import Greeting from './component/Greeting';
+
 export default function App() {
 	return (
 		<div>
-			<p>Hello!</p>
+			<Greeting/>
+			<Greeting/>
 		</div>
 	);
 }
