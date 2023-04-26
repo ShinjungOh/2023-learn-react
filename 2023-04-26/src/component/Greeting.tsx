@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import type React from 'react';
 
 const Paragraph = styled.p`
 	color: #00F;
@@ -17,11 +18,21 @@ const BigParagraph = styled(Paragraph)`
 	}
 `;
 
-export default function Greeting() {
+function HelloWorld({className}: React.HTMLAttributes<HTMLElement>) {
 	return (
-		<BigParagraph>
-      Hello
+		<BigParagraph className={className}>
+			Hello
 			<strong>!</strong>
 		</BigParagraph>
+	);
+}
+
+const SmallHelloWorld = styled(HelloWorld)`
+	font-size: .1em;
+`;
+
+export default function Greeting() {
+	return (
+		<SmallHelloWorld/>
 	);
 }
