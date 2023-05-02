@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import server from './mocks/server.ts';
 
 // Establish API mocking before all tests.

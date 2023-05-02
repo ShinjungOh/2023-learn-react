@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 
+import 'reflect-metadata';
 import {Reset} from 'styled-reset';
 import GlobalStyle from './styles/GlobalStyle';
 
