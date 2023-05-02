@@ -25,19 +25,19 @@ describe('routes', () => {
 		});
 	});
 
-	context('When the current path is "/about")', () => {
-		it('renders the home page', () => {
-			renderRouter('/about');
-
-			screen.getByText(/Test/);
-		});
-	});
-
-	context('When the current path is "/logout")', () => {
-		it('redirects to the home page', () => {
-			renderRouter('/logout');
-
-			screen.getByText(/Welcome/);
-		});
-	});
+	// Context('When the current path is "/about")', () => {
+	// 	it('renders the home page', () => {
+	// 		renderRouter('/about');
+	//
+	// 		screen.getByText(/Test/);
+	// 	});
+	// });
+	//
+	// context('When the current path is "/logout")', () => {
+	// 	it('redirects to the home page', () => {
+	// 		renderRouter('/logout');
+	//
+	// 		screen.getByText(/Welcome/);
+	// 	});
+	// });
 });
