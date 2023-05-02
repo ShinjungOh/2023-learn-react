@@ -16,8 +16,12 @@ export default class ApiService {
 		return categories;
 	}
 
-	async fetchProducts(): Promise<ProductSummary[]> {
-		const {data} = await this.instance.get('/products');
+	async fetchProducts({categoryId}: {
+		categoryId?: string;
+	} = {}): Promise<ProductSummary[]> {
+		const {data} = await this.instance.get('/products', {
+			params: {categoryId},
+		});
 		const {products} = data;
 		return products;
 	}

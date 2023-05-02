@@ -1,17 +1,19 @@
+import {useEffect} from 'react';
 import {container} from 'tsyringe';
-import {useEffectOnce} from 'usehooks-ts';
 
 import {useStore} from 'usestore-ts';
 import ProductsStore from '../stores/ProductsStore';
 
-export default function useFetchProducts() {
+export default function useFetchProducts({categoryId}: {
+	categoryId?: string;
+}) {
 	const store = container.resolve(ProductsStore);
 
 	const [{products}] = useStore(store);
 
-	useEffectOnce(() => {
-		store.fetchProducts();
-	});
+	useEffect(() => {
+		store.fetchProducts({categoryId});
+	}, [store, categoryId]);
 
 	return {products};
 }

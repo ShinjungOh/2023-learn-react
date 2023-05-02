@@ -1,11 +1,14 @@
 import Products from '../components/product-list/Products';
 import useFetchProducts from '../hooks/useFetchProducts';
+import {useSearchParams} from 'react-router-dom';
 
 export default function ProductListPage() {
-	// Todo 1. 상품 목록 얻기
-	const {products} = useFetchProducts();
+	const [params] = useSearchParams();
 
-	// Todo 2. 화면에 보여주기
+	const categoryId = params.get('categoryId') ?? undefined;
+
+	const {products} = useFetchProducts({categoryId});
+
 	return (
 		<div>
 			<h2>Products</h2>
