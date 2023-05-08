@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import server from './mocks/server.ts';
+import 'whatwg-fetch';
 
 // Establish API mocking before all tests.
 beforeAll(() => {

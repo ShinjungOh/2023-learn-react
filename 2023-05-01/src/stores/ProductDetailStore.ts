@@ -5,7 +5,7 @@ import {apiService} from '../services/ApiService';
 
 @singleton()
 @Store()
-export default class ProductStore {
+export default class ProductDetailStore {
 	product: ProductDetail = nullProductDetail;
 
 	loading = true;
@@ -15,13 +15,6 @@ export default class ProductStore {
 	async fetchProduct({productId}: {
 		productId: string;
 	}) {
-		// 1. 로딩 시작 -> loading = true, error = false
-
-		// 2. apiService.fetchProduct({productId})
-
-		// 3. 로딩 끝 -> loading = false, error는 상태 봐서
-		// 			 		-> product
-
 		this.startLoading();
 
 		try {

@@ -10,10 +10,10 @@ const context = describe;
 
 describe('routes', () => {
 	function renderRouter(path: string) {
-		const	router = createMemoryRouter(routes, {initialEntries: [path]});
+		const router = createMemoryRouter(routes, {initialEntries: [path]});
 		render((
 			<ThemeProvider theme={defaultTheme}>
-				<RouterProvider router={router}/>
+				<RouterProvider router={router} />
 			</ThemeProvider>
 		));
 	}
@@ -22,7 +22,9 @@ describe('routes', () => {
 		it('renders the home page', () => {
 			renderRouter('/');
 
-			// Screen.getByText(/Category #1/);
+			screen.getAllByText(/Home/);
+			screen.getAllByText(/Products/);
+			screen.getAllByText(/Cart/);
 		});
 	});
 
@@ -31,9 +33,9 @@ describe('routes', () => {
 			it('renders the product list page', async () => {
 				renderRouter('/products');
 
-				// Await waitFor(() => {
-				// 	screen.getByText(/Product #1/);
-				// });
+				await waitFor(() => {
+					screen.getAllByText(/Products/);
+				});
 			});
 		});
 
@@ -41,10 +43,34 @@ describe('routes', () => {
 			it('renders the product list page', async () => {
 				renderRouter(`/products?categoryId=${fixtures.categories}`);
 
-				// Await waitFor(() => {
-				// 	screen.getByText(/Product #1/);
-				// });
+				await waitFor(() => {
+					screen.getByText(/Category #1/);
+				});
 			});
 		});
+
+		// Context('with the current path id "/products/{id}"', () => {
+		// 	context('with correct ID', () => {
+		// 		it('renders the product detail page', async () => {
+		// 			renderRouter('/products/product-01');
+		//
+		// 			screen.getByText(/Loading/);
+		//
+		// 			await waitFor(() => {
+		// 				screen.getByText(/Product #1/);
+		// 			});
+		// 		});
+		// 	});
+		//
+		// 	context('with incorrect ID', () => {
+		// 		it('renders "not found" message', async () => {
+		// 			renderRouter('/products/xxx');
+		//
+		// 			await waitFor(() => {
+		// 				screen.getByText(/Error/);
+		// 			});
+		// 		});
+		// 	});
+		// });
 	});
 });
