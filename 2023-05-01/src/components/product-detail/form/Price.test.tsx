@@ -6,23 +6,9 @@ import numberFormat from '../../../utils/numberFormat';
 import ProductFormStore from '../../../stores/ProductFormStore';
 
 const [product] = fixtures.products;
-// Const {options} = product;
 
 // 1. Store를 직접 container를 통해 받아 써도 됨
 // 2. 모킹
-jest.mock('../../../hooks/useProductDetailStore', () => () => [
-	{
-		product,
-	},
-]);
-
-// Jest.mock('../../../hooks/useProductFormStore', () => () => [
-// 	{
-// 		options,
-// 		selectedOptionItems: options.map(i => i.items[0]),
-// 		quantity: 2,
-// 	},
-// ]);
 
 describe('Price', () => {
 	const quantity = 2;
@@ -30,6 +16,7 @@ describe('Price', () => {
 	beforeEach(() => {
 		const productFormStore = iocContainer.resolve(ProductFormStore);
 
+		productFormStore.setProduct(product);
 		productFormStore.changeQuantity(quantity);
 	});
 

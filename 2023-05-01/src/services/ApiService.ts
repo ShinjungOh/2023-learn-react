@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import {type Cart, type Category, type ProductDetail, type ProductSummary} from '../types';
 
-const API_BASE_URL = process.env.API_BASE_URL
-  || 'https://shop-demo-api-01.fly.dev';
+const API_BASE_URL = process.env.API_BASE_URL || 'https://shop-demo-api-01.fly.dev';
 
 export default class ApiService {
-	private readonly instance = axios.create({
+	// eslint-disable-next-line
+  private instance = axios.create({
 		baseURL: API_BASE_URL,
 	});
 
@@ -36,6 +36,19 @@ export default class ApiService {
 	async fetchCart(): Promise<Cart> {
 		const {data} = await this.instance.get('/cart');
 		return data;
+	}
+
+	async addProductToCart({productId, options, quantity}: {
+		productId: string;
+		options: Array<{
+			id: string;
+			itemId: string;
+		}>;
+		quantity: number;
+	}): Promise<void> {
+		await this.instance.post('/cart/line-items', {
+			productId, options, quantity,
+		});
 	}
 }
 
