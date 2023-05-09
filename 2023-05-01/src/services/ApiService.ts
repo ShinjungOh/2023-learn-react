@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {type Category, type ProductDetail, type ProductSummary} from '../types';
+import {type Cart, type Category, type ProductDetail, type ProductSummary} from '../types';
 
 const API_BASE_URL = process.env.API_BASE_URL
   || 'https://shop-demo-api-01.fly.dev';
@@ -30,6 +30,11 @@ export default class ApiService {
 		productId: string;
 	}): Promise<ProductDetail> {
 		const {data} = await this.instance.get(`/products/${productId}`);
+		return data;
+	}
+
+	async fetchCart(): Promise<Cart> {
+		const {data} = await this.instance.get('/cart');
 		return data;
 	}
 }
