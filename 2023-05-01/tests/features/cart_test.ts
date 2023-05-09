@@ -5,7 +5,7 @@ Before(({backdoor}) => {
 })
 
 Scenario('Empty cart', ({I}) => {
-  I.amOnPage('/');
+  I.amOnPage('/cart');
 
   I.see('장바구니가 비었습니다.');
 });

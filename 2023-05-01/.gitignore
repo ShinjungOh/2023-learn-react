@@ -131,3 +131,4 @@ dist
 
 .swc
 output
+tests/backdoor.ts
