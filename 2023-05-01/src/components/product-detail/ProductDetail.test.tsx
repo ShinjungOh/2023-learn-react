@@ -8,17 +8,18 @@ import ProductDetailStore from '../../stores/ProductDetailStore';
 const [product] = fixtures.products;
 
 // 방법 1. 모킹하기
-jest.mock('../../hooks/useProductDetailStore', () => () => [
-	{product},
-]);
+// jest.mock('../../hooks/useProductDetailStore', () => () => [
+// 	{product},
+// ]);
 
 test('ProductDetail', async () => {
 	// 방법 2. MSW 사용하기
-	// const store = container.resolve(ProductDetailStore);
-	//
-	// await store.fetchProduct({productId: product.id});
+	const store = container.resolve(ProductDetailStore);
 
-	render(<ProductDetail/>);
+	await store.fetchProduct({productId: product.id});
 
-	screen.getByText(product.name);
+	render(<ProductDetail />);
+
+	screen.getByText(/합계/);
+	screen.getByText(/장바구니에 담기/);
 });

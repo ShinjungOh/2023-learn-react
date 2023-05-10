@@ -35,7 +35,7 @@ describe('SubmitButton', () => {
 			it('calls addToCart action', () => {
 				render(<SubmitButton/>);
 
-				fireEvent.click(screen.getByRole('buttin'));
+				fireEvent.click(screen.getByRole('button'));
 
 				expect(store.addToCart).toBeCalled();
 			});
