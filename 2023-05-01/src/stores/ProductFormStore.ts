@@ -43,6 +43,19 @@ export default class ProductFormStore {
 	}
 
 	@Action()
+	changeOptionItem({optionId, optionItemId}: {
+		optionId: string;
+		optionItemId: string;
+	}) {
+		this.selectedOptionItems = this.product.options.map((option, index) => {
+			const item = this.selectedOptionItems[index];
+			return option.id !== optionId
+				? this.selectedOptionItems[index]
+				: option.items.find(i => i.id === optionItemId) ?? option.items[0]; // 찾는 값을 못 찾았을 경우 초기값으로
+		});
+	}
+
+	@Action()
 	setProduct(product: ProductDetail) {
 		this.product = product;
 		this.selectedOptionItems = this.product.options.map(i => i.items[0]);
